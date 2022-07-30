@@ -96,7 +96,7 @@ function getPlayer(String)
 end
 
 Commands = {}
-local function addCommand(Names, Description, RequiredArgs, Function)
+function addCommand(Names, Description, RequiredArgs, Function)
     local Data = {
         Names = Names,
         Description = Description,
