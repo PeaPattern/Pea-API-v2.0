@@ -118,9 +118,13 @@ function getCommand(Name)
 end
 
 function removeCommand(Name)
-    local Command = getCommand()
-    if Command then
-        Command = nil
+    for _,v in next, Commands do
+        for i,x in next, v.Names do
+            if Name:lower() == x:lower() then
+                tremove(Commands, tfind(Commands, v))
+                break
+            end
+        end
     end
 end
 
