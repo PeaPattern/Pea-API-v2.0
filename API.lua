@@ -196,7 +196,7 @@ end)
 addCommand({"import"}, "imports an addon", 1, function(Message, Args)
     local Addon = Args[1]
     pcall(function()
-        writefile("PeaAPI/addons/" .. Addon, "https://raw.githubusercontent.com/PeaPattern/Pea-API-v2.0/addons/" . Addon)
+        writefile("PeaAPI/addons/" .. Addon, "https://raw.githubusercontent.com/PeaPattern/Pea-API-v2.0/addons/" .. Addon)
         loadfile("PeaAPI/addons/" .. Addon)()
     end)
 end) --skidded straight from moonprompt again :yawn:
