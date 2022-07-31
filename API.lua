@@ -126,7 +126,7 @@ function removeCommand(Name)
             end
         end
     end
-end
+end --as of now i think this is broken and i couldn't find a solution :sob: but i'll fix it one day dont worry!
 
 function runCommand(Name, Args)
     local Command = getCommand(Name)
@@ -192,6 +192,14 @@ addCommand({"blacklist"}, "blacklists a target", 1, function(Message, Args, Targ
         end
     end
 end)
+
+addCommand({"import"}, "imports an addon", 1, function(Message, Args)
+    local Addon = Args[1]
+    pcall(function()
+        writefile("PeaAPI/addons/" .. Addon, "https://raw.githubusercontent.com/PeaPattern/Pea-API-v2.0/addons/" . Addon)
+        loadfile("PeaAPI/addons/" .. Addon)()
+    end)
+end) --skidded straight from moonprompt again :yawn:
 
 local Event = Services.ReplicatedStorage.DefaultChatSystemChatEvents
 Event.OnMessageDoneFiltering.OnClientEvent:Connect(function(Object)
