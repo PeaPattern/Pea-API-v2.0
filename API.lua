@@ -195,11 +195,10 @@ end)
 
 addCommand({"import"}, "imports an addon", 1, function(Message, Args)
     local Addon = Args[1]
-    local s,f = pcall(function()
-        writefile("PeaAPI/addons/" .. Addon, "https://raw.githubusercontent.com/PeaPattern/Pea-API-v2.0/addons/" .. Addon)
-        loadfile("PeaAPI/addons/" .. Addon)()
+    pcall(function()
+        writefile("PeaAPI/addons/" .. Addon .. ".lua", "https://raw.githubusercontent.com/PeaPattern/Pea-API-v2.0/addons/" .. Addon)
+        loadfile("PeaAPI/addons/" .. Addon .. ".lua")()
     end)
-    print(f) --:rage: test
 end) --skidded straight from moonprompt again :yawn:
 
 local Event = Services.ReplicatedStorage.DefaultChatSystemChatEvents
